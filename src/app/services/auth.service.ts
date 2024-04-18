@@ -1,7 +1,8 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { isPlatformBrowser } from '@angular/common';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -12,17 +13,22 @@ export class AuthService {
     'https://nutriserve-server-git-main-saurab-prashers-projects.vercel.app';
   private loggedInUserSubject: BehaviorSubject<any>;
   public loggedInUser: Observable<any>;
-  private router!: Router;
 
-  constructor(private http: HttpClient) {
-    const user = localStorage.getItem('loggedInUser');
-    this.loggedInUserSubject = new BehaviorSubject<any>(
-      user ? JSON.parse(user) : null
-    );
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {
+    this.loggedInUserSubject = new BehaviorSubject<any>(this.getInitialUser());
     this.loggedInUser = this.loggedInUserSubject.asObservable();
   }
-  public get loggedInUserValue(): any {
-    return this.loggedInUserSubject.value;
+
+  private getInitialUser(): any {
+    if (isPlatformBrowser(this.platformId)) {
+      const user = localStorage.getItem('loggedInUser');
+      return user ? JSON.parse(user) : null;
+    }
+    return null;
   }
 
   login(email: string, password: string): Observable<any> {
@@ -38,13 +44,19 @@ export class AuthService {
 
   logout() {
     // You may want to call an API to invalidate the session on the backend as well
-    return this.http.post<any>(`${this.serverUrl}/users/logout`, {}).pipe(
+    return this.http.get<any>(`${this.serverUrl}/users/logout`, {}).pipe(
       tap(() => {
         localStorage.removeItem('loggedInUser');
         this.loggedInUserSubject.next(null);
       })
     );
   }
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Cache-Control': 'no-cache',
+      Pragma: 'no-cache',
+    }),
+  };
 
   register(
     email: string,

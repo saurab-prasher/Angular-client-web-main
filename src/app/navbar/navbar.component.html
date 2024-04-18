@@ -10,7 +10,7 @@
     </a>
     <nav>
       <ul
-        class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-10"
+        class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-10 items-center"
       >
         <li>
           <a
@@ -79,11 +79,24 @@
           </div>
         </li>
         <li>
-          <a
-            class="mx-auto cursor-pointer text-center font-bold border m-auto py-2 px-4 text-md text-green-600 border-green-600 rounded-sm mb-4 hover:bg-green-600 hover:text-white"
-            routerLink="/login"
-            >Sign In</a
+          <ng-template #showLogin>
+            <a
+              class="mx-auto cursor-pointer text-center font-bold border m-auto py-2 px-4 text-md text-green-600 border-green-600 rounded-sm mb-4 hover:bg-green-600 hover:text-white"
+              routerLink="/login"
+              >Sign In</a
+            >
+          </ng-template>
+        </li>
+
+        <li class="flex items-center gap-2" *ngIf="currentUser; else showLogin">
+          <p>Hello, {{ currentUser?.user.firstname }}!</p>
+
+          <button
+            class="mx-auto cursor-pointer text-center font-bold border m-auto py-2 px-4 text-md text-green-600 border-green-600 rounded-sm hover:bg-green-600 hover:text-white"
+            (click)="logout()"
           >
+            Logout
+          </button>
         </li>
       </ul>
     </nav>
