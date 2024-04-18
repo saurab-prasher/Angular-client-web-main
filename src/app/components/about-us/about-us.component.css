@@ -1,0 +1,161 @@
+/* about-us.component.css */
+.relative {
+    position: relative;
+  }
+  
+  .mb-24 {
+    margin-bottom: 6rem;
+  }
+  
+  .h-max {
+    height: max-content;
+  }
+  
+  .flex {
+    display: flex;
+  }
+  
+  .items-center {
+    align-items: center;
+  }
+  
+  .justify-normal {
+    justify-content: normal;
+  }
+  
+  .text-black {
+    color: #000;
+  }
+  
+  .pl-40 {
+    padding-left: 10rem;
+  }
+  
+  .text-6xl {
+    font-size: 4rem;
+  }
+  
+  .font-thin-200 {
+    font-weight: 200;
+  }
+  
+  .tracking-wide {
+    letter-spacing: 0.05em;
+  }
+  
+  .text-lg {
+    font-size: 1.125rem;
+  }
+  
+  .md\:text-xl {
+    font-size: 1.25rem;
+  }
+  
+  .mt-4 {
+    margin-top: 1rem;
+  }
+  
+  .absolute {
+    position: absolute;
+  }
+  
+  .top-0 {
+    top: 0;
+  }
+  
+  .left-0 {
+    left: 0;
+  }
+  
+  .w-full {
+    width: 100%;
+  }
+  
+  .bottom-5 {
+    bottom: 1.25rem;
+  }
+  
+  .top-50 {
+    top: 50%;
+  }
+  
+  .gap-8 {
+    gap: 2rem;
+  }
+  
+  .max-w-sm {
+    max-width: 24rem;
+  }
+  
+  .rounded {
+    border-radius: 0.375rem;
+  }
+  
+  .overflow-hidden {
+    overflow: hidden;
+  }
+  
+  .shadow-lg {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  .py-4 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  
+  .bg-white {
+    background-color: #fff;
+  }
+  
+  .text-2xl {
+    font-size: 1.5rem;
+  }
+  
+  .font-bold {
+    font-weight: bold;
+  }
+  
+  .mb-4 {
+    margin-bottom: 1rem;
+  }
+  
+  .text-green-700 {
+    color: #047857;
+  }
+  
+  .text-gray-700 {
+    color: #4b5563;
+  }
+  
+  .text-base {
+    font-size: 1rem;
+  }
+  
+  .overflow-hidden {
+    overflow: hidden;
+  }
+  
+  .px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  .py-4 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .padding-8 {
+  padding-left: 8%;
+ }
+
+  .text-container{
+    margin-top: 10%;
+  }
+  

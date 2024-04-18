@@ -1,0 +1,101 @@
+/* footer.component.css */
+/* You can directly apply the Tailwind CSS classes as they are */
+.bg-gray-100 {
+    background-color: #f3f4f6;
+  }
+  
+  .text-gray-700 {
+    color: #4b5563;
+  }
+  
+  .pt-10 {
+    padding-top: 2.5rem;
+  }
+  
+  .max-w-6xl {
+    max-width: 72rem;
+  }
+  
+  .mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .px-5 {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+  
+  .grid {
+    display: grid;
+  }
+  
+  .grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  
+  .md\:grid-cols-5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+  
+  .gap-10 {
+    gap: 2.5rem;
+  }
+  
+  .space-y-4 > * + * {
+    margin-top: 1rem;
+  }
+  
+  .space-y-2 > * + * {
+    margin-top: 0.5rem;
+  }
+
+  .space-y-1 > * + * {
+  margin-top: 0.25rem;
+ }
+  
+  .font-semibold {
+    font-weight: 600;
+  }
+  
+  .text-sm {
+    font-size: 0.875rem;
+  }
+  
+  .year {
+    font-weight: 600;
+    color: inherit;
+  }
+  
+  .flex {
+    display: flex;
+  }
+  
+  .space-x-3 > * + * {
+    margin-left: 0.75rem;
+  }
+  
+  a {
+    color: #3b82f6;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  ul li {
+    margin-bottom: 0.5rem;
+    color: #4b5563;
+  }
+
+  ul li a{
+    color: #4b5563;
+  }
+  

@@ -1,0 +1,13 @@
+<!-- blog-page.component.html -->
+<div class="blog-page">
+    <div class="container">
+      <h1 class="page-title">NutriServe Blog</h1>
+      @for(p of blogPosts; track p.id) {
+      <div class="post">
+        <h2 class="post-title">{{ p.title }}</h2>
+        <p class="post-summary">{{ p.summary }}</p>
+        <div class="post-date">{{ p.date }}</div>
+      </div> }
+    </div>
+  </div>
+  

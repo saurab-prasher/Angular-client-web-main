@@ -1,0 +1,45 @@
+/* blog-page.component.css */
+.blog-page {
+    background-color: #f3f4f6;
+    min-height: 100vh;
+    padding: 2rem;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .page-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 1.5rem;
+  }
+  
+  .post {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+  }
+  
+  .post-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.75rem;
+  }
+  
+  .post-summary {
+    font-size: 1.25rem;
+    color: #555;
+    margin-bottom: 1rem;
+  }
+  
+  .post-date {
+    font-size: 0.875rem;
+    color: #888;
+  }
+  

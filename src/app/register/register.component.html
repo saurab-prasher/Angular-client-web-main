@@ -1,0 +1,83 @@
+<div class="flex justify-center items-center py-24">
+  <div class="grid grid-cols-2 gap-12">
+    <img
+      alt="register account image"
+      height="400"
+      width="400"
+      src="/assets/images/register.webp"
+    />
+
+    <div>
+      <div>
+        <h2 class="text-center text-3xl font-extrabold text-gray-900">
+          Register a new account
+        </h2>
+        <p class="mt-2 text-center text-sm text-gray-600">
+          Or
+          <a class="font-medium text-green-600" href="/login"
+            >sign in to your account</a
+          >
+        </p>
+      </div>
+      <form class="mt-12">
+        <input type="hidden" name="remember" value="true" />
+        <div class="rounded-md shadow-sm flex flex-col gap-4">
+          <div>
+            <label for="firstname" class="sr-only">First Name</label>
+            <input
+              id="firstname"
+              name="firstname"
+              type="text"
+              autoComplete="firstname"
+              required
+              class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+              placeholder="first name"
+            />
+          </div>
+          <div>
+            <label for="lastname" class="sr-only">Last Name</label>
+            <input
+              id="lastname"
+              name="lastname"
+              type="text"
+              autoComplete="lastname"
+              required
+              class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+              placeholder="last name"
+            />
+          </div>
+          <div>
+            <label for="email" class="sr-only">Email address</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              autoComplete="email"
+              required
+              class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+              placeholder="Email address"
+            />
+          </div>
+          <div>
+            <label for="password" class="sr-only">Password</label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              autoComplete="password"
+              required
+              class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+              placeholder="Password"
+            />
+          </div>
+          <button
+            type="submit"
+            class="w-full py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-700 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 my-auto mt-20"
+          >
+            Sign up
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

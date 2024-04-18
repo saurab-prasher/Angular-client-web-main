@@ -1,0 +1,106 @@
+import { Component, OnInit,Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import {
+  FormsModule,
+  NgForm,
+} from '@angular/forms';
+import { Observable } from 'rxjs';
+
+@Component({
+  selector: 'app-meals',
+  standalone: true,
+  imports: [FormsModule],
+  templateUrl: './meals.component.html',
+  styleUrl: './meals.component.css'
+})
+
+//forms modeule and ngmodule
+
+export class MealsComponent implements OnInit {
+  meals!: Meal[]; //
+  currentPage: number = 1;
+  searchQuery: string = "";
+  searchBy: string = "name";
+  isVisible: boolean = false;
+  selectedMeal!: Meal;  //
+  showModal: boolean = false;
+  filteredMeals: Meal[] = [];
+
+  ITEMS_PER_PAGE: number = 9;
+
+  constructor(private http: HttpClient) {}
+
+  ngOnInit(): void {
+    this.fetchData();
+  }
+
+  fetchData() {
+    this.http.get<Meal[]>("http://localhost:5000/api/meals")
+      .subscribe(data => {
+        this.meals = data;
+        this.filteredMeals = this.meals; // Populate filteredMeals with all meals by default
+        //console.log("Data fetched successfully:", data);
+      });
+  }
+
+  get totalItems(): number {
+    return this.meals ? this.meals.length : 0;
+  }
+
+  get totalPages(): number {
+    return Math.ceil(this.totalItems / this.ITEMS_PER_PAGE);
+  }
+
+  handlePageChange(pageNumber: number) {
+    this.currentPage = pageNumber;
+  }
+
+  handleViewRecipe(meal: Meal) {
+    this.selectedMeal = meal;
+    this.showModal = true;
+  }
+
+  handleSearch(form: NgForm = {} as NgForm) { 
+    console.log("Handling search...");
+    console.log("Search query:", this.searchQuery);
+    this.filteredMeals = this.meals.filter(meal => {
+      if (this.searchQuery === "") return true;
+      if (this.searchBy === "name") {
+        return meal.name.toLowerCase().includes(this.searchQuery.toLowerCase());
+      } else if (this.searchBy === "category") {
+        return meal.category.toLowerCase().includes(this.searchQuery.toLowerCase());
+      } else if (this.searchBy === "ingredient") {
+        return meal.ingredients.some(ingredient =>
+          ingredient.toLowerCase().includes(this.searchQuery.toLowerCase())
+        );
+      }
+      return true;
+    });
+  
+    // After updating filteredMeals, update currentPage to 1 to reset pagination
+    this.currentPage = 1;
+    form.reset(); // Reset the form after searching
+  }
+  
+  handleSearchByChange() {
+    this.handleSearch();
+  }
+
+}
+
+interface NutritionalValues {
+  calories: number;
+  protein: string;
+  carbs: string;
+  fat: string;
+}
+
+interface Meal {
+  nutritionalValues: NutritionalValues;
+  _id: string;
+  name: string;
+  description: string;
+  category: string;
+  ingredients: string[];
+  imageUrl: string;
+}

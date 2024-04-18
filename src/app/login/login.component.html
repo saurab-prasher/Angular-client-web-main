@@ -1,0 +1,83 @@
+<div class="flex justify-center items-center py-24">
+  <div class="grid grid-cols-2 gap-12">
+    <div>
+      <!-- Placeholder for Image (You can use <img> tag or Angular's <img> equivalent here) -->
+      <h2 class="text-center text-3xl font-extrabold text-gray-900">
+        Sign in to your account
+      </h2>
+      <p class="mt-2 text-center text-sm text-gray-600">
+        Or
+        <a routerLink="/register" class="font-medium text-green-600">
+          register a new account
+        </a>
+      </p>
+      <form class="mt-12" (ngSubmit)="onSubmit()">
+        <input type="hidden" name="remember" value="true" />
+        <div class="rounded-md shadow-sm flex flex-col gap-4">
+          <div>
+            <label for="email-address" class="sr-only">Email address</label>
+            <input
+              id="email-address"
+              name="email"
+              type="email"
+              [(ngModel)]="email"
+              autoComplete="email"
+              required
+              class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+              placeholder="Email address"
+            />
+          </div>
+          <div>
+            <label for="password" class="sr-only">Password</label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              [(ngModel)]="password"
+              autoComplete="current-password"
+              required
+              class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:text-green-600 focus:z-10 sm:text-sm"
+              placeholder="Password"
+            />
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between mt-4">
+          <div class="flex items-center">
+            <input
+              id="remember-me"
+              name="remember-me"
+              type="checkbox"
+              class="h-4 w-4 text-green-600 border-gray-300 rounded"
+            />
+            <label for="remember-me" class="ml-2 block text-sm text-gray-900">
+              Remember me
+            </label>
+          </div>
+
+          <div class="text-sm">
+            <a href="#" class="font-medium text-green-600">
+              Forgot your password?
+            </a>
+          </div>
+        </div>
+
+        <div class="">
+          <button
+            type="submit"
+            class="w-full py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-700 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 my-auto mt-20"
+          >
+            Sign in
+          </button>
+          <div *ngIf="error" class="text-red-600">Invalid credentials</div>
+        </div>
+      </form>
+    </div>
+    <div>
+      <img
+        src="/assets/images/signin.webp"
+        class="h-70 w-80 object-cover object-center"
+      />
+    </div>
+  </div>
+</div>

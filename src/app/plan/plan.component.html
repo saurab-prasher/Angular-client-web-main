@@ -1,0 +1,126 @@
+<div class="flex flex-col gap-8 shadow-md w-8/12 m-auto py-12 px-48 mb-12">
+  <h2 class="text-4xl text-center font-light tracking-wide mb-2">
+    Choose your plan size
+  </h2>
+
+  <p class="font-light">
+    We'll set this as your default plan size, but you can always change it later
+    from week to week.
+  </p>
+
+  <div class="flex flex-col gap-5">
+    <div class="flex justify-between items-center">
+      <span class="block w-3/6 font-light">Number of people</span>
+
+      <div class="flex w-9/12">
+        <button
+          (click)="setNumberOfPeople(2)"
+          [ngClass]="{
+            'border w-36 py-2 cursor-pointer rounded-sm border-green-600': true,
+            'bg-green-600 text-white': numberOfPeople === 2,
+            '': numberOfPeople !== 2
+          }"
+        >
+          2
+        </button>
+
+        <button
+          (click)="setNumberOfPeople(4)"
+          [ngClass]="{
+            'border w-36 py-2 cursor-pointer rounded-sm border-green-600': true,
+            'bg-green-600 text-white': numberOfPeople === 4,
+            '': numberOfPeople !== 4
+          }"
+        >
+          4
+        </button>
+      </div>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="font-light">Recipes per week</span>
+
+      <div class="flex">
+        <button
+          (click)="setRecipesPerWeek(3)"
+          [ngClass]="{
+            'border w-36 py-2 cursor-pointer rounded-sm border-green-600 ': true,
+            'bg-green-600 text-white': recipesPerWeek === 3,
+            '': recipesPerWeek !== 3
+          }"
+        >
+          3
+        </button>
+        <button
+          (click)="setRecipesPerWeek(4)"
+          [ngClass]="{
+            'border w-36 py-2 cursor-pointer rounded-sm border-green-600 ': true,
+            'bg-green-600 text-white': recipesPerWeek === 4,
+            '': recipesPerWeek !== 4
+          }"
+        >
+          4
+        </button>
+        <button
+          (click)="setRecipesPerWeek(5)"
+          [ngClass]="{
+            'border w-36 py-2 cursor-pointer rounded-sm border-green-600 ': true,
+            'bg-green-600 text-white': recipesPerWeek === 5,
+            '': recipesPerWeek !== 5
+          }"
+        >
+          5
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="">
+    <div
+      class="price-summary border border-gray-200 rounded-sm p-4 border-b-0 rounded-b-none flex-1"
+    >
+      <div
+        class="flex flex-col gap-2 price-summary-header border-b border-gray-300"
+      >
+        <h5 class="font-semibold">Price Summary</h5>
+        <p class="font-thin block">
+          {{ recipesPerWeek }} meals for {{ numberOfPeople }} people per week
+        </p>
+        <p class="font-thin block pb-2">
+          {{ recipesPerWeek * numberOfPeople }} total servings
+        </p>
+      </div>
+
+      <div class="flex gap-2 flex-col price-summary-description">
+        <div class="flex justify-between pt-2">
+          <p class="font-thin">Box price</p>
+          <span>{{ totalPrice }}</span>
+        </div>
+
+        <div class="flex justify-between">
+          <p class="font-thin">Price per serving</p>
+          <span>{{ pricePerServing }}</span>
+        </div>
+
+        <div class="flex justify-between">
+          <p class="font-thin">Shipping price</p>
+          <span>{{ shippingPrice }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="flex-1">
+      <div class="bg-gray-200 price-summary-footer mb-6">
+        <div class="flex justify-between px-4 py-6">
+          <p class="font-light">First box total</p>
+          <span>$135.89</span>
+        </div>
+      </div>
+
+      <a
+        routerLink="/login"
+        class="border block w-full text-center bg-green-600 py-2 text-md text-white border-green-600 rounded-sm"
+      >
+        Select this plan
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+<!-- contact-us.component.html -->
+<div class="min-h-screen p-8">
+  <div class="max-w-xl mx-auto">
+    <h1 class="text-4xl font-bold text-gray-800 mb-8">Contact Us</h1>
+    <form
+      (submit)="handleSubmit($event)"
+      class="bg-white p-6 rounded-lg shadow"
+    >
+      <div class="mb-6">
+        <label for="name" class="block text-gray-700 text-sm font-bold mb-2"
+          >Name</label
+        >
+        <input
+          type="text"
+          name="name"
+          id="name"
+          [(ngModel)]="formData.name"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        />
+      </div>
+      <div class="mb-6">
+        <label for="email" class="block text-gray-700 text-sm font-bold mb-2"
+          >Email</label
+        >
+        <input
+          type="email"
+          name="email"
+          id="email"
+          [(ngModel)]="formData.email"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        />
+      </div>
+      <div class="mb-6">
+        <label for="message" class="block text-gray-700 text-sm font-bold mb-2"
+          >Message</label
+        >
+        <textarea
+          name="message"
+          id="message"
+          [(ngModel)]="formData.message"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        ></textarea>
+      </div>
+      <button
+        type="submit"
+        class="bg-orange-500 hover:bg-orange-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+      >
+        Send Message
+      </button>
+    </form>
+  </div>
+</div>
